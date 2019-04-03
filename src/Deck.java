@@ -31,6 +31,16 @@ public class Deck {
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		this.cards = new ArrayList<Card>();
+		this.size = ranks.length;
+		for(int i = 0; i < suits.length; i++){
+			for(int j = 0; j < ranks.length; j++){
+				Card card = new Card(ranks[j], suits[i], values[j]);
+				this.cards.add(card);               
+			}
+		}
+		shuffle();
+
 	}
 
 
@@ -40,6 +50,7 @@ public class Deck {
 	 */
 	public boolean isEmpty() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		return this.size == 0;
 	}
 
 	/**
@@ -48,6 +59,7 @@ public class Deck {
 	 */
 	public int size() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		return this.size;
 	}
 
 	/**
@@ -56,6 +68,7 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+
 	}
 
 	/**
@@ -65,6 +78,10 @@ public class Deck {
 	 */
 	public Card deal() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		if (isEmpty()) return null;
+		this.size--;
+		return cards.get(size);
+
 	}
 
 	/**
